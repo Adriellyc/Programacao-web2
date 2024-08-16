@@ -1,1 +1,2 @@
-alert("olá!")
+alert("olá!");
+console.log("mensagem ")
