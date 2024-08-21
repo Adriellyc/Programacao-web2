@@ -1,1 +1,1 @@
-alert(" um alerta rodando de uma página externa!");
+document.getElementById("texto").innerHTML="Meu primeiro texto texto <b> JS! </B>";
