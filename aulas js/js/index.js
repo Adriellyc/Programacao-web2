@@ -1,1 +1,0 @@
-document.getElementById("texto").innerHTML="Meu primeiro texto texto <b> JS! </B>";

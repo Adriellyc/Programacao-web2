@@ -1,1 +1,1 @@
-const btAdic
+const inputNum = document.getElementById("inputNum");
