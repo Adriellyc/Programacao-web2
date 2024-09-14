@@ -3,13 +3,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const resultContainer = document.getElementById('resultContainer');
 
     button.addEventListener('click', () => {
-        // Limpa o conteúdo anterior
+        
         resultContainer.innerHTML = '';
 
-        // Obtém a palavra digitada
+        
         const input = document.getElementById('inputWord').value;
 
-        // Separa a palavra em letras e exibe cada uma em uma <div>
+        
         for (let letter of input) {
             const letterDiv = document.createElement('div');
             letterDiv.textContent = letter;
