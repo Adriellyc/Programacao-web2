@@ -1,25 +1,32 @@
-function separarLetras() {
+document.addEventListener("DOMContentLoaded", () => {
+    const button = document.getElementById('separateButton');
+    const resultContainer = document.getElementById('resultContainer');
 
-    const word = document.getElementById("wordInput").value;
+    button.addEventListener('click', () => {
+        // Limpa o conteúdo anterior
+        resultContainer.innerHTML = '';
 
-    const output = document.gentElementId("output");
+        // Obtém a palavra digitada
+        const input = document.getElementById('inputWord').value;
 
-    output.innerHTML = '';
-
-    for (let letter of word) {
-        const letterDiv = document.createElement('div');
-        letterDiv.textContent = letter;
-
-        output.appendchild('letterDiv');
-
-
-        document.gentElementById('separarButton').addEventListener('click', separarLetras);
-
-
-
-
-    }
-
+        // Separa a palavra em letras e exibe cada uma em uma <div>
+        for (let letter of input) {
+            const letterDiv = document.createElement('div');
+            letterDiv.textContent = letter;
+            letterDiv.style.fontSize = '2em'; // Tamanho de fonte maior
+            letterDiv.style.border = '1px solid black'; // Borda simples
+            letterDiv.style.display = 'inline-block'; // Para exibir as letras lado a lado
+            letterDiv.style.padding = '5px'; // Espaçamento interno
+            letterDiv.style.margin = '2px'; // Espaçamento entre letras
+            resultContainer.appendChild(letterDiv);
+        }
+    });
+});
 
 
-}
+
+   
+
+
+
+
