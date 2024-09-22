@@ -1,183 +1,111 @@
-const palavras = [
-    "amora", "calor", "Onibus", "Noite", "escova",
+const words = [
+    "amora", "calor", "onibus", "noite", "escova",
     "feliz", "gato", "homem", "ilha", "joia",
     "luz", "mato", "navio", "olho", "paz",
     "quadro", "roxo", "sol", "vento", "urso",
     "vaca", "agua", "bola", "casa", "dado",
-    "elefante", "fogo", "bebida", "horta","inseto",
-    "jogo", "nuvem", "mundo", "nuvem", "ocúlos",
-    "pato", "quente", "rua", "sapo", "tigre",
-    "uva", "vila", "abacaxi", "bola", "cachorro",
-    "dente", "estrela", "feira", "girafa", "homem",
-    "ilha", "jacare", "Barata", "livro", "mesa",
-    "navio", "olho", "pao", "quadro", "rosa",
-    "sabao", "taco", "urso", "vaca", "zebra",
-    "abajur", "banco", "caderno", "dente", "escola",
-    "festa", "gato", "higiene", "iguana", "janela",
-    "ketchup", "lago", "Moto", "navio", "oculos",
-    "pasta", "quadrado", "pedra", "sol", "tigre",
-    "urso", "vassoura", "vela", "mala", "yoga",
-    "zebra"
-]
+    "elefante", "fogo", "bebida", "horta", "inseto",
+    "jogo", "nuvem", "mundo", "oculos", "pato",
+    "quente", "rua", "sapo", "tigre", "uva",
+    "vila", "abacaxi", "cachorro", "dente", "estrela",
+    "feira", "girafa", "jacare", "barata", "livro",
+    "mesa", "pao", "rosa", "sabao", "taco",
+    "vassoura", "vela", "mala", "yoga", "zebra",
+    "abajur", "banco", "caderno", "escola", "festa",
+    "higiene", "iguana", "janela", "ketchup", "lago",
+    "moto", "pasta", "quadrado", "pedra", "sol",
+    "tigre", "urso", "zebra"
+];
 
-const alfabetoBrasileiro = [
-    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
-    'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
-    'U', 'V', 'W', 'X', 'Y', 'Z'
-]
+const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
 
-let palavraJogo = ''
-let tentativas = 0
-let letrasCertas = 0
-let erros = 0
-let listLetrasChutadas = []
+let currentWord = '';
+let attempts = 0;
+let correctLettersCount = 0;
+let errors = 0;
+let guessedLetters = [];
 
-function iniciarNovoJogo(){
-    let indexPalavra = Math.floor(Math.random() * palavras.length)
-    const divLetras = document.getElementById('ltr')
-    divLetras.innerHTML = ''
-    const divLetrasTentList = document.getElementById('ltr-ch-lst')
-    divLetrasTentList.innerHTML = ''
-    const divTentativas = document.getElementById('tnt-ch')
-    divTentativas.innerHTML = ''
-    divTentativas.classList.add('trv')
-    const divLetrasTentativa = document.getElementById('tcl-ltr')
-    divLetrasTentativa.innerHTML = ''
-    divLetrasTentativa.classList.add('trv')
-    const imgForca = document.getElementById('img-f')
-    imgForca.innerHTML = ''
+function startNewGame() {
+    const randomIndex = Math.floor(Math.random() * words.length);
+    currentWord = words[randomIndex].toLowerCase();
+    resetGame();
+    renderGame();
+}
 
-    let pLenPalavra = document.createElement('p')
-    pLenPalavra.id = 'ltr-tnt'
-    pLenPalavra.textContent = `Palavra com ${palavras[indexPalavra].length} letras`
-    
-    palavraJogo = palavras[indexPalavra]
-    
-    for (let letra in palavraJogo){
-        let divLetra = document.createElement('div')
-        divLetra.classList.add('div-let-sp')
-        
-        divLetras.appendChild(divLetra)
+function resetGame() {
+    attempts = 0;
+    correctLettersCount = 0;
+    errors = 0;
+    guessedLetters = [];
+}
+
+function renderGame() {
+    const wordDisplay = document.getElementById('word-display');
+    const hangmanImage = document.getElementById('hangman-image');
+    const letterButtons = document.getElementById('letter-buttons');
+    const letterList = document.getElementById('letter-list');
+    const attemptCount = document.getElementById('attempt-count');
+
+    wordDisplay.innerHTML = '';
+    hangmanImage.innerHTML = '<img src="./img/img1.png" alt="forca" id="img-forca">';
+    letterButtons.innerHTML = '';
+    letterList.innerHTML = '';
+    attemptCount.textContent = `Tentativas: ${attempts}`;
+
+    currentWord.split('').forEach(() => {
+        const letterDiv = document.createElement('div');
+        letterDiv.classList.add('letter-placeholder');
+        wordDisplay.appendChild(letterDiv);
+    });
+
+    alphabet.forEach(letter => {
+        const button = document.createElement('button');
+        button.textContent = letter;
+        button.classList.add('letter-button');
+        button.onclick = () => handleGuess(letter);
+        letterButtons.appendChild(button);
+    });
+}
+
+function handleGuess(letter) {
+    if (guessedLetters.includes(letter.toLowerCase())) {
+        alert('A letra já foi chutada, informe outra.');
+        return;
     }
 
-    for (let letraAlfabeto of alfabetoBrasileiro){
-        let buttonLetra = document.createElement('button')
-        buttonLetra.textContent = letraAlfabeto
-        buttonLetra.classList.add('btn-ltr-ch')
+    guessedLetters.push(letter.toLowerCase());
+    attempts++;
 
-        buttonLetra.onclick = ()=>{
-            if (erros >= 6){
-                alert(`Você perdeu, reinicie o jogo\nA palavra era ${palavraJogo}`)
-                return;
-            }
-        
-            const pTentativasCh = document.getElementById('txt-tnt')
-            const letrasOcultasDiv = document.querySelectorAll('.div-let-sp')
-            
-            if (!pTentativasCh){
-                alert('Inicie o jogo antes de tentar um chute.')
-                return;
-            }
-            
-            if(palavraJogo.length == letrasCertas){
-                alert('Você já acertou a palavra! Reinicie o Jogo!')
-                return;
-            }
-        
-            if (!buttonLetra.textContent){
-                alert('Informe uma letra!')
-                return;
-            }
-        
-            let letraInList = listLetrasChutadas.find((letra)=>{
-                return letra.toLowerCase() == buttonLetra.textContent.toLowerCase()
-            })
-            
-            if (letraInList != undefined){
-                alert('A letra já foi chutada, informe outra.')
-                return
-            }
-        
-            let countIndex = 0
-            let chuteErrado = true
-            for (let letra of palavraJogo){
-                if (letra.toLowerCase() == buttonLetra.textContent.toLowerCase()){
-                    let pLetraChute = document.createElement('p')
-                    pLetraChute.classList.add('ltr-ch-crt')
-                    pLetraChute.textContent = buttonLetra.textContent
-        
-                    letrasOcultasDiv[countIndex].appendChild(pLetraChute)
-                    letrasCertas++
-                    chuteErrado = false
-                }
-                countIndex++
-            }
+    const letterList = document.getElementById('letter-list');
+    const attemptCount = document.getElementById('attempt-count');
+    attemptCount.textContent = `Tentativas: ${attempts}`;
 
-            const divLetrasTent = document.getElementById('ltr-ch-lst')
-            divLetrasTent.classList.add('trv')
-            if (tentativas == 0){
-                let divTextLetraTen = document.createElement('div')
-                let pTextLetraTent = document.createElement('p')
-                pTextLetraTent.id = 'txt-ltr-ch'
-                pTextLetraTent.textContent = 'Letras chutadas: '
-                divTextLetraTen.appendChild(pTextLetraTent)
-                divLetrasTent.appendChild(divTextLetraTen)
-            }
+    const wordDisplay = document.getElementById('word-display');
+    let isWrongGuess = true;
 
-            tentativas++
-            const pTentativas = document.getElementById('txt-tnt')
-            pTentativas.textContent = `Tentativas: ${tentativas}`
-            
-            
-            if (chuteErrado){
-                erros++
-                let imgErroForca = document.getElementById(`img-forca`)
-                imgErroForca.src = `./img/img${erros+1}.png`
-                if (erros>=6) {
-                    alert(`Você perdeu, reinicie o jogo\nA palavra era ${palavraJogo}`)
-                    return
-                }
-            }
-            
-        
-            if(palavraJogo.length == letrasCertas){
-                alert('Você acertou a palavra! Bom trabalho')
-            }
-        
-            
-            let divLetraTent = document.createElement('div')
-            divLetraTent.classList.add('ltr-ch-div')
-            
-            let pLetraTent = document.createElement('p')
-            pLetraTent.classList.add('ltr-ch-p')
-            pLetraTent.textContent = buttonLetra.textContent
-        
-            divLetraTent.appendChild(pLetraTent)
-            divLetrasTent.appendChild(divLetraTent)
-        
-            listLetrasChutadas.push(buttonLetra.textContent)
+    currentWord.split('').forEach((wordLetter, index) => {
+        if (wordLetter === letter.toLowerCase()) {
+            const letterDiv = wordDisplay.children[index];
+            letterDiv.textContent = letter;
+            correctLettersCount++;
+            isWrongGuess = false;
         }
-        divLetrasTentativa.appendChild(buttonLetra)
+    });
+
+    if (isWrongGuess) {
+        errors++;
+        document.getElementById('img-forca').src = `./img/img${errors + 1}.png`;
+        if (errors >= 6) {
+            alert(`Você perdeu, reinicie o jogo\nA palavra era ${currentWord}`);
+            return;
+        }
     }
-    
-    listLetrasChutadas = []
-    tentativas = 0
-    letrasCertas = 0
-    erros = 0
-    
-    let img = document.createElement('img')
-    img.src = `./img/img1.png`
-    img.alt = `forca`
-    img.id = `img-forca`
-    imgForca.appendChild(img)
 
-    let pTentativas = document.createElement('p')
-    pTentativas.id = 'txt-tnt'
-    pTentativas.textContent = `Tentativas: ${tentativas}`
-    divTentativas.appendChild(pTentativas)
+    const letterListDiv = document.createElement('div');
+    letterListDiv.textContent = letter;
+    letterList.appendChild(letterListDiv);
 
-    // let teclado = document.getElementById('len-tcl')
-    // teclado.classList.add('trv')
-
-
+    if (correctLettersCount === currentWord.length) {
+        alert('Você acertou a palavra! Bom trabalho');
+    }
 }

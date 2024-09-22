@@ -5,29 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./jogoforca.css">
     <script src="script.js" defer></script>
-    <title>Jogo da forca</title>
+    <title>Jogo da Forca</title>
 </head>
 <body>
     <header>
-        <h1>
-            Jogo da forca
-        </h1>
+        <h1>Jogo da Forca</h1>
     </header>
     <main>
-        <div id="div-inc-jg">
-            <button id="inc-jg" onclick="iniciarNovoJogo()">Novo Jogo</button>
-        </div>
-        <div id="img-f"></div>
-        <div id="ltr"></div>
-        <div id="len-tcl">
-            <div id="tcl-ltr"></div>
-        </div>
-        <div id="flx-ch-lst">
-            <div id="ltr-ch-lst"></div>
-        </div>
-        <div id="flx-tnt-ch">
-            <div id="tnt-ch"></div>
-        </div>
+        <section id="game-controls">
+            <button id="new-game" onclick="startNewGame()">Novo Jogo</button>
+        </section>
+        <section id="hangman-image" aria-live="polite"></section>
+        <section id="word-display" aria-label="Letras da palavra"></section>
+        <section id="keyboard">
+            <div id="letter-buttons" aria-label="Teclado de letras"></div>
+        </section>
+        <section id="guessed-letters">
+            <div id="letter-list" aria-label="Lista de letras chutadas"></div>
+        </section>
+        <section id="attempts">
+            <div id="attempt-count" aria-label="Tentativas"></div>
+        </section>
     </main>
 </body>
 </html>
