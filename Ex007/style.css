@@ -1,26 +1,84 @@
-body{
-  font-family: Arial, Helvetica, sans-serif;  
-  text-align: center;
-  margin: 30px;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#exibicao-palavra{
-    font-size: 5em;
-    margin-bottom: 30px;
-    
-    
+header {
+    margin-bottom: 20px;
 }
 
-#botao-reiniciar{
-    background-color: #4CAF50;
-    border: none;
+h1 {
+    color: #333;
+}
+
+#game-controls {
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #28a745;
     color: white;
-    padding: 10px 20px;
+    border: none;
     border-radius: 5px;
+    padding: 10px 20px;
     cursor: pointer;
-
+    font-size: 16px;
+    transition: background-color 0.3s;
 }
-    
-#botao-reiniciar:houver {
-    background-color: #29805b;
+
+button:hover {
+    background-color: #218838;
+}
+
+#hangman-image {
+    margin-bottom: 20px;
+}
+
+#word-display {
+    font-size: 24px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.letter-placeholder {
+    width: 30px;
+    height: 30px;
+    border-bottom: 2px solid #333;
+    margin: 0 5px;
+    text-align: center;
+    font-size: 24px;
+}
+
+#keyboard {
+    margin-bottom: 20px;
+}
+
+.letter-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.letter-button:hover {
+    background-color: #0056b3;
+}
+
+#guessed-letters {
+    margin-bottom: 20px;
+}
+
+#attempts {
+    font-size: 18px;
+    color: #333;
 }
