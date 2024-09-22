@@ -1,14 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorteio</title>
-    <script src="script.js" defer ></script>
+    <script src="script.js" defer></script>
+    <title>Somatotio</title>
 </head>
 <body>
-    <h1>Sorteados</h1>
-    <label for="min">valor minimo:</label>
-    <input type="number"> id="min" value "1"
+    <main>
+
+        <h1> SOMATÓRIO</h1>
+        <div class="content">
+            <div>
+                <label for="number">Número</label>
+                <input id="number" type="number">
+            </div>
+            <button id="add">Adicionar</button>
+        </div>
+        <div class="content">
+            <label for="sum">Soma: </label>
+            <input id="sum" type="number" value="0" readonly="true">
+        </div>
+        <div class="content">
+            <pre id="media">
+média: 
+            </pre>
+        </div>
+        <div class="content">
+            <pre id="numdig">
+Valores digitados: 
+            </pre>
+        </div>
+        <div class="content">
+            <button id="clear">Limpar</button>
+        </div>
+    </main>
 </body>
 </html>

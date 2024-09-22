@@ -3,14 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>somatório</title>
-    <script src="./script.js" defer></script>
-
+    <script src="script.js" defer></script>
+    <title>Sorteio</title>
 </head>
 <body>
-    <h1> Somatório</h1>
-    <p>
-        Número: <input id ="inputNum"type="number">
-    </p>
+    <header>
+        <h1>
+            Sorteador com repetição
+        </h1>
+    </header>
+    <main>
+        <div>
+            <label for="menorvalor"> menor valor: </label>
+            <input id="menorvalor" type="number">
+        </div>
+        <div>
+            <label for="maiorvalor">maior valor</label>
+            <input id="maiorvalor" type="number">
+        </div>
+        <button id="sorteio">Sortear</button>
+        <div>
+            <label for="numSorteado">Número sorteado</label>
+            <input id="numSorteado" type="number" readonly>
+        </div>
+        <div>
+            <p>
+        </div>
+    </main>
 </body>
 </html>
