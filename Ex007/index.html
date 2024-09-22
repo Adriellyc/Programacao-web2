@@ -1,16 +1,33 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo da Forca</title>
+    <link rel="stylesheet" href="./jogoforca.css">
     <script src="script.js" defer></script>
+    <title>Jogo da forca</title>
 </head>
 <body>
-    <h1>Jogo da Forca</h1>
-    <div id="word"></div>
-    <div id="buttons"></div>
-    <div id="hangman"></div>
-    <button id="reset">Reiniciar Jogo</button>
+    <header>
+        <h1>
+            Jogo da forca
+        </h1>
+    </header>
+    <main>
+        <div id="div-inc-jg">
+            <button id="inc-jg" onclick="iniciarNovoJogo()">Novo Jogo</button>
+        </div>
+        <div id="img-f"></div>
+        <div id="ltr"></div>
+        <div id="len-tcl">
+            <div id="tcl-ltr"></div>
+        </div>
+        <div id="flx-ch-lst">
+            <div id="ltr-ch-lst"></div>
+        </div>
+        <div id="flx-tnt-ch">
+            <div id="tnt-ch"></div>
+        </div>
+    </main>
 </body>
 </html>
