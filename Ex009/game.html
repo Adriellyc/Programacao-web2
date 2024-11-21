@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinhe a Senha</title>
+    <link rel="stylesheet" href="game.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Jogo "Adivinhe a Senha"</h1>
+        <button onclick="exibirSenha()">Mostrar Senha</button>
+    </header>
+    <main>
+        <button onclick="novoJogo()">Novo Jogo</button>
+        <div>
+            <label for="tentativa">Digite sua tentativa:</label>
+            <input type="text" id="tentativa" maxlength="4" placeholder="0000">
+            <button onclick="chutar()">Chutar</button>
+        </div>
+        <div id="resultado">
+            <h2>Tentativas:</h2>
+            <div id="lista-tentativas"></div>
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 - [Adrielly Campos]</p>
+    </footer>
+</body>
+</html>
