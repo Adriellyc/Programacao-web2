@@ -50,7 +50,7 @@ header nav ul li{
   padding: 0 40px;
 }
  
-header .acs-contato button{
+ .acs-contato button{
   padding: 10px 40px;
   font-size: 18px;
   font-weight: 600;
@@ -58,11 +58,13 @@ header .acs-contato button{
   border: 0;
   border-radius: 30px;
   cursor: pointer;
+  transition: .2s;
 
 }
 
-header .acs-contato button:hover{
+.acs-contato button:hover{
   box-shadow: 0px 0px 10px  rgb(132, 0, 255);
+  transform: scale(1.05);
 }
 
 /* Estilo do topo do site */
@@ -78,56 +80,19 @@ img {
   margin: 0 auto;
 }
 
-
-
-
-
-
-
-
-/* Jogo */
-#game {
-  margin-top: 40px;
-  background-color:blueviolet; /* Fundo azul escuro */
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+h1{
+ color: #fff; 
 }
 
-#game input, #game button {
-  margin: 10px 0;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-#game input {
-  background-color: #fff;
-  color: #000;
-  width: 200px;
-  text-align: center;
-}
-
-#game button {
-  background-color: #0074d9;
+p{
   color: #fff;
-}
 
-#game button:hover {
-  background-color: #00d9ff;
-}
+ 
 
-#attempts {
-  margin-top: 20px;
-  text-align: left;
-}
 
-#attempts p {
-  background-color: #00264d; /* Azul mais escuro */
-  color: #fff;
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 5px;
-  border-left: 5px solid #00bfff;
-}
+
+
+
+
+
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos de TI - Adrielly Campos Soares</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Adrielly Campos Soares</h1>
+            <p>Projetos Inovadores em Tecnologia da Informação</p>
+        </div>
+    </header>
+    <main>
+        <section id="projetos">
+            <div class="container">
+                <h2>Meus Projetos de TI</h2>
+                <ul>
+                    <li>
+                        <h3>Plataforma de Monitoramento em Cloud</h3>
+                        <p>Desenvolvi uma solução baseada em nuvem para monitorar recursos de infraestrutura em tempo real. A plataforma utiliza inteligência artificial para prever falhas e otimizar custos operacionais.</p>
+                    </li>
+                    <li>
+                        <h3>Chatbot para Atendimento Educacional</h3>
+                        <p>Criação de um chatbot integrado a APIs de aprendizado de máquina, ajudando estudantes a encontrar conteúdos e tirar dúvidas automaticamente. Implementado com Python e Flask.</p>
+                    </li>
+                    <li>
+                        <h3>Marketplace de Serviços Locais</h3>
+                        <p>Desenvolvimento de um marketplace que conecta prestadores de serviços locais com clientes. A aplicação foi construída com Node.js e React, com integração a sistemas de pagamento.</p>
+                    </li>
+                    <li>
+                        <h3>Dashboard de Dados de Saúde Pública</h3>
+                        <p>Construí um painel interativo em Power BI que analisa indicadores de saúde pública, como taxas de vacinação e doenças emergentes. O projeto foi utilizado por ONGs para planejamento estratégico.</p>
+                    </li>
+                    <li>
+                        <h3>Sistema de Gestão para Pequenas Empresas</h3>
+                        <p>Desenvolvi um sistema modular para controle de estoque, vendas e relatórios financeiros, voltado para microempresários. Inclui autenticação segura e geração automática de relatórios em PDF.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Adrielly Campos Soares. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
