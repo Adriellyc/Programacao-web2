@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Escolas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body> fazer o esboço com esses tpicos desse html  
+  <header>
+    <h1>Sistema de Escolas</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#dashboard">Dashboard</a></li>
+      <li><a href="#listar-escolas">Listar Escolas</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section id="listar-escolas">
+      <h2>Listar Escolas</h2>
+      <form id="pesquisar-escola">
+        <label for="nome-escola">Pesquisar escola:</label>
+        <input type="text" id="nome-escola" name="nome-escola" placeholder="Digite o nome da escola">
+        <button type="submit">Pesquisar</button>
+      </form>
+      <div id="resultado">
+        <h3>Resultados:</h3>
+        <p>Clique em uma escola para ver os detalhes.</p>
+        <ul>
+          <li><a href="#detalhes">Escola Exemplo 1</a></li>
+          <li><a href="#detalhes">Escola Exemplo 2</a></li>
+        </ul>
+      </div>
+    </section>
+    <section id="detalhes">
+      <h2>Detalhes da Escola</h2>
+      <p><strong>Nome:</strong> Escola Exemplo 1</p>
+      <p><strong>CNPJ:</strong> 00.000.000/0001-00</p>
+      <p><strong>Biblioteca:</strong> Sim</p>
+      <p><strong>Outros Dados:</strong> Informações adicionais aqui.</p>
+    </section>
+  </main>
+  <footer>
+    
+</body>
+</html>

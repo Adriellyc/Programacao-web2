@@ -1,0 +1,147 @@
+/* styles.css */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f7f7f7; /* Fundo neutro */
+}
+
+/* Cabeçalho */
+header {
+  background-color: #d60000; /* Verde elegante */
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+/* Menu de navegação */
+nav {
+  background-color: #333; /* Fundo escuro */
+  padding: 10px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #4CAF50; /* Destaque verde no hover */
+}
+
+/* Área principal */
+main {
+  padding: 20px;
+}
+
+/* Dashboard */
+#dashboard, #listar-escolas, #detalhes {
+  margin-bottom: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+h2 {
+  margin-top: 0;
+  color: #4CAF50; /* Verde para títulos */
+}
+
+/* Formulário de pesquisa */
+#pesquisar-escola {
+  margin-bottom: 20px;
+}
+
+#pesquisar-escola label {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+#pesquisar-escola input {
+  width: calc(100% - 130px);
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+#pesquisar-escola button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#pesquisar-escola button:hover {
+  background-color: #45a049;
+}
+
+/* Resultados da pesquisa */
+#resultado ul {
+  list-style: none;
+  padding: 0;
+}
+
+#resultado ul li {
+  margin: 10px 0;
+}
+
+#resultado ul li a {
+  text-decoration: none;
+  color: #4CAF50;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+#resultado ul li a:hover {
+  color: #357a38;
+}
+
+/* Detalhes da escola */
+#detalhes p {
+  margin: 10px 0;
+}
+
+#detalhes strong {
+  color: #333;
+}
+
+/* Rodapé */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 30px;
+  font-size: 0.9rem;
+}
