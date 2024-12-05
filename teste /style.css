@@ -1,147 +1,167 @@
-/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  color: #333;
-  background-color: #f7f7f7; /* Fundo neutro */
+    display: flex;
+    min-height: 100vh;
+    background-color: #e3e9f7;
 }
 
-/* Cabeçalho */
-header {
-  background-color: #d60000; /* Verde elegante */
-  color: white;
-  padding: 20px 0;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-header h1 {
-  margin: 0;
-  font-size: 2.5rem;
-}
-
-/* Menu de navegação */
-nav {
-  background-color: #333; /* Fundo escuro */
-  padding: 10px;
-}
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-}
-
-nav ul li {
-  margin: 0 15px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: white;
-  font-size: 1.2rem;
-  padding: 5px 10px;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-nav ul li a:hover {
-  background-color: #4CAF50; /* Destaque verde no hover */
-}
-
-/* Área principal */
 main {
-  padding: 20px;
+    padding: 20px;
+    position: fixed;
+    z-index: 1;
+    padding-left: calc(82px + 20px);
 }
 
-/* Dashboard */
-#dashboard, #listar-escolas, #detalhes {
-  margin-bottom: 30px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffffff;
+    height: 100vh;
+    border-radius: 0px 18px 18px 0px;
+    position: relative;
+    transition: all .5s;
+    min-width: 82px;
+    z-index: 2;
 }
 
-h2 {
-  margin-top: 0;
-  color: #4CAF50; /* Verde para títulos */
+#sidebar_content {
+    padding: 12px;
 }
 
-/* Formulário de pesquisa */
-#pesquisar-escola {
-  margin-bottom: 20px;
+#user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
 }
 
-#pesquisar-escola label {
-  font-size: 1.1rem;
-  font-weight: bold;
+#user_avatar {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 20px;
 }
 
-#pesquisar-escola input {
-  width: calc(100% - 130px);
-  padding: 10px;
-  margin-right: 10px;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+#user_infos {
+    display: flex;
+    flex-direction: column;
 }
 
-#pesquisar-escola button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  font-size: 1rem;
+#user_infos span:last-child {
+    color: #6b6b6b;
+    font-size: 12px;
+}
+
+#side_items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+}
+
+.side-item {
+    border-radius: 8px;
+    padding: 14px;
+    cursor: pointer;
+}
+
+.side-item.active {
+    background-color: #4f46e5;
+}
+
+.side-item:hover:not(.active),
+#logout_btn:hover {
+    background-color: #e3e9f7;
+}
+
+.side-item a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0a0a0a;
+}
+
+.side-item.active a {
+    color: #e3e9f7;
+}
+
+.side-item a i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+#logout {
+    border-top: 1px solid #e3e9f7;
+    padding: 12px;
+}
+
+#logout_btn {
   border: none;
-  border-radius: 5px;
+  padding: 12px;
+  font-size: 14px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border-radius: 8px;
+  text-align: start;
   cursor: pointer;
-  transition: background-color 0.3s;
+  background-color: transparent;
 }
 
-#pesquisar-escola button:hover {
-  background-color: #45a049;
+#open_btn {
+  position: absolute;
+  top: 30px;
+  right: -10px;
+  background-color: #4f46e5;
+  color: #e3e9f7;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
 }
 
-/* Resultados da pesquisa */
-#resultado ul {
-  list-style: none;
-  padding: 0;
+#open_btn_icon {
+    transition: transform .3s ease;
 }
 
-#resultado ul li {
-  margin: 10px 0;
+.open-sidebar #open_btn_icon {
+    transform: rotate(180deg);
 }
 
-#resultado ul li a {
-  text-decoration: none;
-  color: #4CAF50;
-  font-size: 1.1rem;
-  font-weight: bold;
-  transition: color 0.3s;
+.item-description {
+  width: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  transition: width .6s;
+  height: 0px;
 }
 
-#resultado ul li a:hover {
-  color: #357a38;
+#sidebar.open-sidebar {
+    min-width: 15%;
 }
 
-/* Detalhes da escola */
-#detalhes p {
-  margin: 10px 0;
+#sidebar.open-sidebar .item-description {
+    width: 150px;
+    height: auto;
 }
 
-#detalhes strong {
-  color: #333;
-}
-
-/* Rodapé */
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  margin-top: 30px;
-  font-size: 0.9rem;
+#sidebar.open-sidebar .side-item a {
+    justify-content: flex-start;
+    gap: 14px;
 }
